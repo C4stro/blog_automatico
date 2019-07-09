@@ -16,5 +16,8 @@
     "YT"
   ],
   "author": "Matheus Castro",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "readline-sync": "^1.4.9"
+  }
 }
