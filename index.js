@@ -1,26 +1,23 @@
-/* Biblioteca usadas */
-const readline = require('readline-sync');
+const utf8 = require('utf8');
+const readline = require('readline-sync')
+const Parser = require('rss-parser');
 
-
-function start () {
-	const conteudo = {}
-
-	conteudo.termoDeBusca = RetornaTermoDeBusca();
-	conteudo.prefixo = RetornaPrefixo();
-
-	function RetornaTermoDeBusca() {
-		return readline.question('Tema a ser buscado no Wikipedia: ');
-	}
-
-	function RetornaPrefixo () {
-		const prefixos = ['Quem eh', 'Quem foi', 'A historia de' ];
-		const prefixoIndexSelecionado = readline.keyInSelect(prefixos, 'Escolha uma opcao: ');
-		const prefixoTextoSelecionado = prefixos[prefixoIndexSelecionado];
-		
-		return prefixoTextoSelecionado;
-	}
-
-	console.log(conteudo);
+/* Robô de texto */
+const robots = {
+	userInput: require('./robots/userInput.js'),
+	text: require('./robots/text.js')
 }
 
-start();
+async function start () {
+  const content = {
+  	useFecthContentFromWikipediaAlgorithmia: false,
+  	maximumSentences: 7
+  }
+
+  await robots.userInput(content);
+  robots.text(content);
+
+  console.log(content);
+}
+
+start()

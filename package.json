@@ -18,6 +18,9 @@
   "author": "Matheus Castro",
   "license": "MIT",
   "dependencies": {
-    "readline-sync": "^1.4.9"
+    "algorithmia": "^0.3.10",
+    "readline-sync": "^1.4.9",
+    "rss-parser": "^3.7.2",
+    "utf8": "^3.0.0"
   }
 }
